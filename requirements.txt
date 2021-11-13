@@ -5,7 +5,7 @@ yfinance
 numpy
 pandas
 pyfolio
-matplotlib.pyplot
+matplotlib
 pandas_datareader
 plotly.express
 plotly.subplots
