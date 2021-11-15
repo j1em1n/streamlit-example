@@ -357,8 +357,8 @@ def app():
 
     st.write("Apply the first differences to the price series and plot them together:")
     return_series_diff = return_series.diff().dropna()
-    # fig, ax = plt.subplots(2, sharex=True)
-    # return_series.plot(title = "Portfolio price", ax=ax[0])
+    fig, ax = plt.subplots(2, sharex=True)
+    return_series.plot(title = "Portfolio price", ax=ax[0])
     return_series_diff.plot(ax=ax[1], title='First Differences')
 
     # save image, display it, and delete after usage.
