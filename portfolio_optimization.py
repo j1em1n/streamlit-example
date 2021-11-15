@@ -128,7 +128,7 @@ def app():
     st.image('ef.png')
     plt.clf()
 
-    st.write("Having simulated 100,000 random portfolios, we can also investigate which one has the highest Sharpe ratio (maximum expected return per unit of risk, also known as the Tangency Portfolio) or minimum volatility")
+    st.write("Having simulated 1,000 random portfolios, we can also investigate which one has the highest Sharpe ratio (maximum expected return per unit of risk, also known as the Tangency Portfolio) or minimum volatility")
 
     max_sharpe_ind = np.argmax(portf_results_df.sharpe_ratio)
     max_sharpe_portf = portf_results_df.loc[max_sharpe_ind]
@@ -469,14 +469,14 @@ def app():
     st.image('c.png')
     plt.clf()
 
-    # predictions_ARIMA_diff = pd.Series(results_ARIMA.fittedvalues, copy=True)
+    predictions_ARIMA_diff = pd.Series(results_ARIMA.fittedvalues, copy=True)
     # st.dataframe(predictions_ARIMA_diff.head())
 
-    # predictions_ARIMA_diff_cumsum = predictions_ARIMA_diff.cumsum()
+    predictions_ARIMA_diff_cumsum = predictions_ARIMA_diff.cumsum()
     # st.dataframe(predictions_ARIMA_diff_cumsum.head())
 
-    # predictions_ARIMA_log = pd.Series(return_series[0], index=returns_df.index)
-    # predictions_ARIMA_log = predictions_ARIMA_log.add(predictions_ARIMA_diff_cumsum,fill_value=0)
+    predictions_ARIMA_log = pd.Series(return_series[0], index=returns_df.index)
+    predictions_ARIMA_log = predictions_ARIMA_log.add(predictions_ARIMA_diff_cumsum,fill_value=0)
     # st.dataframe(predictions_ARIMA_log.head())
 
     predictions_ARIMA = np.exp(predictions_ARIMA_log)
@@ -529,6 +529,7 @@ def app():
     plt.savefig('i',dpi=400)
     st.image('i.png')
     plt.clf()
+
 
 
 
